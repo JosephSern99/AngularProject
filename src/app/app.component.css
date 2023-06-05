@@ -1,0 +1,7 @@
+p {
+    display: inline;
+}
+
+a:hover {
+    color: hotpink;
+}

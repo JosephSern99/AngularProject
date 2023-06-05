@@ -1,0 +1,39 @@
+<mat-form-field>
+  <input (keyup)="this.applyFilter($event.target.value)" matInput placeholder="Filter">
+</mat-form-field>
+<div  class="mat-elevation-z8">
+<mat-table [dataSource]="dataSource" matSort>
+  <!-- Position Column -->
+  <ng-container matColumnDef="_id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element._id}} </mat-cell>
+  </ng-container>
+
+  <!-- Year Column -->
+  <ng-container matColumnDef="year">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Year </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.year}} </mat-cell>
+  </ng-container>
+
+  <!-- Sector Column -->
+  <ng-container matColumnDef="sector">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Sector </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.sector}} </mat-cell>
+  </ng-container>
+
+    <!-- Sector Column -->
+  <ng-container matColumnDef="type">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Type of Dentist </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="count">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Number of Dentist in Singapore </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.count}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[6,12,24]" showFirstLastButtons></mat-paginator>
+</div>
